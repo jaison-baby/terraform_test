@@ -25,12 +25,12 @@ variable "instance_region" {
 variable "instance_accesskey" {
   description = "Value of the Name tag for the EC2 instance"
   type        = string
-  default     = "AKIA5MDMMSR7JRMAJ3PB"
+  default     = ""
 }
 variable "instance_secretkey" {
   description = "Value of the Name tag for the EC2 instance"
   type        = string
-  default     = "KJUOFaKn7GfwULa2o75xzejXL+EC8FuW7n4vCUsy"
+  default     = ""
 }
 variable "sg_ingress_rules" {
     type = list(object({
