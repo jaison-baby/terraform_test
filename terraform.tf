@@ -1,13 +1,13 @@
 provider "aws" {
    region     = var.instance_region
-   access_key = 
-   secret_key = 
+   access_key = var.instance_accesskey
+   secret_key = var.instance_secretkey
    
 }
 
-module "instance1" {
+module "aws_instance" {
     
-    source = "https://github.com/jaison-baby/TerraForm_Learning/blob/master/variables.tf"
+    source  = "terraform-aws-modules/ec2-instance/aws"
     ami = var.instance_AMI  
     instance_type = var.instance_type 
     key_name= var.instance_key
@@ -28,8 +28,7 @@ resource "aws_security_group" "main" {
     }
   ]
 }
-module "inbondrules" {
-  source = "https://github.com/jaison-baby/TerraForm_Learning/blob/master/variables.tf"
+resource "aws_security_group_rule" "ingress_rules" {
   count = length(var.sg_ingress_rules)
 
   type              = "ingress"

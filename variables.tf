@@ -25,12 +25,12 @@ variable "instance_region" {
 variable "instance_accesskey" {
   description = "Value of the Name tag for the EC2 instance"
   type        = string
-  default     = ""
+  default     = "AKIA5MDMMSR7AVRYAQLS"
 }
 variable "instance_secretkey" {
   description = "Value of the Name tag for the EC2 instance"
   type        = string
-  default     = ""
+  default     = "z0+nbHTpXdM6/uKsl4qKzy+P5A33LLGthnJXOcYE"
 }
 variable "sg_ingress_rules" {
     type = list(object({
@@ -55,6 +55,14 @@ variable "sg_ingress_rules" {
           cidr_block  = "0.0.0.0/0"
           description = "test"
         },
+        {
+          from_port   = 80
+          to_port     = 80
+          protocol    = "tcp"
+          cidr_block  = "0.0.0.0/0"
+          description = "test"
+        },
+
     ]
 }
 
